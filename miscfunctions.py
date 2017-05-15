@@ -6,13 +6,15 @@ def calc_factors(numbertofactor):
     :return: list of factors
     """
 
-    factors = [1]
+    factors = []
     factoringnumber = 2
+    originalnumber = numbertofactor
     while factoringnumber * factoringnumber <= numbertofactor:
         if numbertofactor % factoringnumber == 0:
             factors.append(factoringnumber)
-            numbertofactor = int(numbertofactor / factoringnumber)
+            numbertofactor = int(numbertofactor // factoringnumber)
         else:
             factoringnumber += 1
-    factors.append(numbertofactor)
+    if numbertofactor != originalnumber:
+        factors.append(numbertofactor)
     return factors
